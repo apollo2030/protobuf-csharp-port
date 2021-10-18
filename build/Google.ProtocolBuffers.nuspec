@@ -43,8 +43,9 @@ Language Guide  - http://code.google.com/apis/protocolbuffers/docs/proto.html
   </metadata>
   <files>
     <!-- Release Binaries -->
-    <file src="..\build_output\Release\**\Google.ProtocolBuffers.???" target="lib\" />
-    <file src="..\build_output\Release\**\Google.ProtocolBuffers.Serialization.???" target="lib\" />
+    
+    <file src="..\src\ProtocolBuffers\bin\NET35\Release\**\Google.ProtocolBuffers.???" target="lib\" />
+    <file src="..\src\ProtocolBuffers\bin\NET35\Release\**\Google.ProtocolBuffers.Serialization.???" target="lib\" />
     <!-- Tools -->
     <file src="..\build_output\tools\**\*" target="tools\" />
     <file src="..\build_output\protos\**\*" target="tools\" />
