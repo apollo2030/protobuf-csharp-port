@@ -1,54 +1,32 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <EnvironmentFlavor>CLIENTPROFILE</EnvironmentFlavor>
     <EnvironmentTemplate>NET35</EnvironmentTemplate>
     <EnvironmentProjectType>TEST</EnvironmentProjectType>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{EE01ED24-3750-4567-9A23-1DB676A15610}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Google.ProtocolBuffers</RootNamespace>
     <AssemblyName>Google.ProtocolBuffersLite.Test</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\keys\Google.ProtocolBuffers.snk</AssemblyOriginatorKeyFile>
-    <OldToolsVersion>3.5</OldToolsVersion>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
     <OutputPath>bin\NET35\Debug</OutputPath>
     <IntermediateOutputPath>obj\NET35\Debug\</IntermediateOutputPath>
     <DefineConstants>DEBUG;TRACE;$(EnvironmentFlavor);$(EnvironmentTemplate)</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <NoStdLib>true</NoStdLib>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
     <OutputPath>bin\NET35\Release</OutputPath>
     <IntermediateOutputPath>obj\NET35\Release\</IntermediateOutputPath>
     <DefineConstants>TRACE;$(EnvironmentFlavor);$(EnvironmentTemplate)</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <NoStdLib>true</NoStdLib>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="mscorlib" />
-    <Reference Include="System" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
   <ItemGroup Condition=" '$(EnvironmentFlavor)' == 'CLIENTPROFILE' ">
     <Reference Include="nunit.framework">
       <SpecificVersion>False</SpecificVersion>
@@ -81,42 +59,29 @@
     <Compile Include="..\ProtocolBuffers.Test\TestRpcGenerator.cs">
       <Link>TestRpcGenerator.cs</Link>
     </Compile>
-    <Compile Include="AbstractBuilderLiteTest.cs" />
-    <Compile Include="AbstractMessageLiteTest.cs" />
-    <Compile Include="ExtendableBuilderLiteTest.cs" />
-    <Compile Include="ExtendableMessageLiteTest.cs" />
-    <Compile Include="LiteTest.cs" />
-    <Compile Include="SerializableLiteTest.cs" />
-    <Compile Include="TestLiteByApi.cs" />
-    <Compile Include="TestProtos\UnitTestExtrasLiteProtoFile.cs" />
-    <Compile Include="TestProtos\UnitTestImportLiteProtoFile.cs" />
-    <Compile Include="TestProtos\UnitTestLiteProtoFile.cs" />
-    <Compile Include="TestProtos\UnitTestRpcInteropLite.cs" />
-    <Compile Include="TestUtil.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProtocolBuffers.Serialization\ProtocolBuffersLite.Serialization.csproj">
-      <Project>{E067A59D-9D0A-4A1F-92B1-38E4457241D1}</Project>
-      <Name>ProtocolBuffersLite.Serialization</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProtocolBuffers\ProtocolBuffersLite.csproj">
-      <Project>{6969BDCE-D925-43F3-94AC-A531E6DF2591}</Project>
-      <Name>ProtocolBuffersLite</Name>
-      <Private>True</Private>
-    </ProjectReference>
+    <ProjectReference Include="..\ProtocolBuffers.Serialization\ProtocolBuffersLite.Serialization.csproj" />
+    <ProjectReference Include="..\ProtocolBuffers\ProtocolBuffersLite.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <Compile Remove="App.xaml.cs" />
+    <Compile Remove="InteropLiteTest.cs" />
+    <Compile Remove="MissingFieldAndExtensionTest.cs" />
+    <Compile Remove="TestProtos\UnitTestExtrasFullProtoFile.cs" />
+    <Compile Remove="TestProtos\UnitTestImportProtoFile.cs" />
+    <Compile Remove="TestProtos\UnitTestLiteImportNonLiteProtoFile.cs" />
+    <Compile Remove="TestProtos\UnitTestProtoFile.cs" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(EnvironmentFlavor)' == 'CLIENTPROFILE' ">
     <StartAction>Program</StartAction>
     <StartProgram>$(ProjectDir)..\..\lib\NUnit\tools\nunit-console.exe</StartProgram>
     <StartArguments>/nologo /noshadow /labels /wait $(AssemblyName).dll</StartArguments>
     <StartWorkingDirectory>$(ProjectDir)$(OutputPath)</StartWorkingDirectory>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.246501">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
 </Project>
