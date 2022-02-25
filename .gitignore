@@ -40,3 +40,4 @@ mono/*.exe
 mono/*.dll
 /src/ProtocolBuffers.Serialization/bin
 /src/ProtocolBuffers.Serialization/obj
+.vs/

@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nuspec.xsd">
   <metadata>
     <id>Google.ProtocolBuffers</id>
-    <version>$version$</version>
+    <version>2.4.1.10</version>
     <owners>Jon Skeet</owners>
     <authors>Jon Skeet</authors>
     <licenseUrl>http://code.google.com/p/protobuf-csharp-port/source/browse/license.txt</licenseUrl>
@@ -34,27 +34,27 @@ Developer Guide - http://code.google.com/apis/protocolbuffers/docs/overview.html
 Language Guide  - http://code.google.com/apis/protocolbuffers/docs/proto.html
 
     ]]></description>
-	
-    <references>
+    <dependencies>
+      <group targetFramework="netstandard2.0" />
+      <group targetFramework="monoandroid11" />
+      <group targetFramework="Xamarin.iOS10" />
+    </dependencies>
+    <!--<references>
       <reference file="Google.ProtocolBuffers.dll"/>
       <reference file="Google.ProtocolBuffers.Serialization.dll"/>
-    </references>
+    </references>-->
   
   </metadata>
   <files>
     <!-- Release Binaries -->
+    <file src="..\src\ProtocolBuffers\bin\NET35\Release\netstandard2.0\Google.ProtocolBuffers.???" target="lib\netstandard2.0" />
+    <file src="..\src\ProtocolBuffers.Serialization\bin\NET35\Release\netstandard2.0\Google.ProtocolBuffers.Serialization.???" target="lib\netstandard2.0" />
     
-    <file src="..\src\ProtocolBuffers\bin\NET35\Release\**\Google.ProtocolBuffers.???" target="lib\" />
-    <file src="..\src\ProtocolBuffers\bin\NET35\Release\**\Google.ProtocolBuffers.Serialization.???" target="lib\" />
-    <!-- Tools -->
-    <file src="..\build_output\tools\**\*" target="tools\" />
-    <file src="..\build_output\protos\**\*" target="tools\" />
-    <!-- Content -->
-    <file src="..\build_output\CHANGES.txt" target="tools\"/>
-    <file src="..\build_output\license.txt" target="tools\"/>
-    <file src="..\build_output\tools\protoc-license.txt" target="tools\"/>
-    <!-- Source -->
-    <file src="..\src\ProtocolBuffers\**\*.cs" target="src\ProtocolBuffers\"/>
-    <file src="..\src\ProtocolBuffers.Serialization\**\*.cs" target="src\ProtocolBuffers.Serialization\"/>
+    <file src="..\src\ProtocolBuffers\bin\NET35\Release\netstandard2.0\Google.ProtocolBuffers.???" target="lib\Xamarin.iOS10" />
+    <file src="..\src\ProtocolBuffers.Serialization\bin\NET35\Release\netstandard2.0\Google.ProtocolBuffers.Serialization.???" target="lib\Xamarin.iOS10" />
+
+    <file src="..\src\ProtocolBuffers\bin\NET35\Release\netstandard2.0\Google.ProtocolBuffers.???" target="lib\MonoAndroid11" />
+    <file src="..\src\ProtocolBuffers.Serialization\bin\NET35\Release\netstandard2.0\Google.ProtocolBuffers.Serialization.???" target="lib\MonoAndroid11" />
+
   </files>
 </package>

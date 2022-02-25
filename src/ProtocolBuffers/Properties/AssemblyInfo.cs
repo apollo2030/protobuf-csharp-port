@@ -59,10 +59,10 @@ using System.Security;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("2.4.1.555")]
 
-[assembly: AssemblyVersion("2.4.1.555")]
+[assembly: AssemblyVersion("2.4.1.10")]
 
 #if !NOFILEVERSION
-[assembly: AssemblyFileVersion("2.4.1.555")]
+[assembly: AssemblyFileVersion("2.4.1.10")]
 #endif
 
 [assembly: CLSCompliant(true)]
